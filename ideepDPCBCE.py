@@ -62,9 +62,9 @@ if btnExample:
         'MASQKRPSQRHGSKYLATASTMDHARHGFLPRHRDTGILDSIGRFFGGDRGAPKRGSGKDSHHPARTAHYGSLPQKSHGRTQDENPVVHFFKNIVTPRTPPPSQGKGRGLSLSRFSWGAEGQRPGFGYGGRASDYKSAHKGFKGVDAQGTLSKIFKLGGRDSRSGSPMARR', language="markdown")
     st.code(
         'MASMQHFSLAALLLAASICLGDADRTECQLPLDKGTPCTQEGGVKPSVAWWHDDKSGICLSFKYTGCGGNANRFTTIKNCEQHCKMPDRGACALGKKPAEDSNGEQLVCAGMREDKCPNGYQCKMMAFMGLCCPTKEEELFAREYEGVCKSGKPVKMDRGSGWMMTILGKSCDDQFCPEDAKCERGKLFANCCK', language="markdown")
-with col2:
-    with open('deepdpc.zip', 'rb') as f:
-       st.download_button('Download Zip', f, file_name='archive.zip')  # Defaults to 'application/octet-stream'
+#with col2:
+#    with open('deepdpc.zip', 'rb') as f:
+#       st.download_button('Download Zip', f, file_name='archive.zip')  # Defaults to 'application/octet-stream'
 
 
 if st.sidebar.button('Submit'):
