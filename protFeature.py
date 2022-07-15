@@ -7,8 +7,8 @@ from propy import PyPro
 # # ################## Preparation for Web App
 with open("./epi__DPC_Scale.pkl", 'rb') as file:
     std_scale = pickle.load(file)
-
-with open("./epi__DPC_Model.pkl", 'rb') as file:
+path="https://drive.google.com/file/d/1w3FgCLl-zJP91A2O65CtQmi1cJo_BynD/view?usp=sharing"
+with open(path, 'rb') as file: # ./epi__DPC_Model.pkl
     _Clf = pickle.load(file)
 
 #  # load json and create model
