@@ -2,3 +2,4 @@ streamlit
 pandas
 numpy
 propy3
+scikit-learn==1.0.2
