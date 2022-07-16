@@ -8,8 +8,8 @@ from propy import PyPro
 with open("epi__DPC_Scale.pkl", 'rb') as file:
     std_scale = pickle.load(file)
 
-with open("epi__DPC_Model.pkl", 'rb') as filemodel:
-    _Clf = pickle.load(filemodel)
+# with open("epi__DPC_Model.pkl", 'rb') as filemodel:
+#     _Clf = pickle.load(filemodel)
 
 def processAllStrings(fname):
     seqs = []
