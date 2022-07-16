@@ -5,11 +5,11 @@ from propy import PyPro
 # from tensorflow.keras.models import model_from_json
 
 # # ################## Preparation for Web App
-with open("./epi__DPC_Scale.pkl", 'rb') as file:
+with open("epi__DPC_Scale.pkl", 'rb') as file:
     std_scale = pickle.load(file)
 
-with open("./epi__DPC_Model.pkl", 'rb') as file:
-    _Clf = pickle.load(file)
+with open("epi__DPC_Model.pkl", 'rb') as filemodel:
+    _Clf = pickle.load(filemodel)
 
 def processAllStrings(fname):
     seqs = []
