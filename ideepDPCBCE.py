@@ -32,7 +32,7 @@ def load_model(url):
     return model
 
 
-modelFile = load_model("./epi__DPC_Model.pkl")
+modelFile = load_model("https://raminay.com/model/epi__DPC_Model.pkl")
 model = BytesIO(modelFile)
 learn_inf = load_learner(model)
 
