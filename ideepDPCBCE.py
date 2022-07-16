@@ -20,7 +20,7 @@ import joblib
 # with open("epi__DPC_Scale.pkl", 'rb') as file:
 #     std_scale = pickle.load(file)
 std_scale=pickle.load(open('epi__DPC_Scale.pkl','rb'))
-_Clf=import joblib.load(open('epi__DPC_Model.pkl')) # 'epi__DPC_Model.pkl'
+_Clf=joblib.load(open('epi__DPC_Model.pkl')) # 'epi__DPC_Model.pkl'
 
 epi_length = 20
 st.title("iLBCE-Deep")
