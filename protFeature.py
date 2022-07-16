@@ -7,23 +7,10 @@ from propy import PyPro
 # # ################## Preparation for Web App
 with open("./epi__DPC_Scale.pkl", 'rb') as file:
     std_scale = pickle.load(file)
-path="./epi__DPC_Model.pkl" # "https://raminay.com/model/epi__DPC_Model.pkl"
+# path="./epi__DPC_Model.pkl" # "https://raminay.com/model/epi__DPC_Model.pkl"
 # _Clf=pickle.load(open(path, 'rb'))
-with open(path, 'rb') as file: # ./epi__DPC_Model.pkl
-    _Clf = pickle.load('./epi__DPC_Model.pkl')
-
-#  # load json and create model
-# json_file = open('model_DPC_LSTM.json', 'r')
-# loaded_model_json = json_file.read()
-# json_file.close()
-# _lstm = model_from_json(loaded_model_json)
-# # load weights into new model
-# _lstm.load_weights("weight_DPC_lstm.h5")
-# print("Loaded model from disk")
-
-# _Clf = _lstm #, _ = lstmModel(input_shape)
-
-
+with open('./epi__DPC_Model.pkl', 'rb') as file: # ./epi__DPC_Model.pkl
+    _Clf = pickle.load(file)
 
 def processAllStrings(fname):
     seqs = []
