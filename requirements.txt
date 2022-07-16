@@ -1,6 +1,7 @@
-streamlit
-pandas
-numpy
-propy3
+streamlit==1.10.0
+pandas==1.3.5
+numpy==1.21.6
+propy3==1.1.0
 scikit-learn==1.0.2
 pickleshare==0.7.5
+Pillow==9.2.0
