@@ -5,6 +5,7 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from sklearn.model_selection import cross_val_predict
+import protFeature
 
 epi_length = 20
 st.title("iLBCE-Deep")
@@ -71,7 +72,7 @@ if st.sidebar.button('Submit'):
     st.session_state.load_state = True
     allowed_chars = set('ACDEFGHIKLMNPQRSTVWXY')
     # import extractDPCFeatures
-    import protFeature
+    
     if seq == "":
         st.error("Please input the sequence first")
         exit(code=None)
