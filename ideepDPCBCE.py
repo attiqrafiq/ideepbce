@@ -7,6 +7,9 @@ from sklearn.metrics import accuracy_score, confusion_matrix, classification_rep
 from sklearn.model_selection import cross_val_predict
 # import protFeature
 import pickle
+import requests
+from io import BytesIO
+from fastai.text.all import *
 # import pandas as pd
 # import numpy as np
 # from propy import PyPro
@@ -16,10 +19,22 @@ import pickle
 # with open("epi__DPC_Scale.pkl", 'rb') as file:
 #     std_scale = pickle.load(file)
 std_scale=pickle.load(open('epi__DPC_Model.pkl','rb'))
-_Clf=pickle.load(open('./epi_all_Model.pkl','rb'))
+# _Clf=pickle.load(open('./epi_all_Model.pkl','rb'))
 
 epi_length = 20
 st.title("iLBCE-Deep")
+
+# download model from Dropbox, cache it and load the model into the app
+@st.cache(allow_output_mutation=True)
+def load_model(url):
+    modelLink = url
+    model = requests.get(modelLink).content
+    return model
+
+
+modelFile = load_model("./epi__DPC_Model.pkl")
+model = BytesIO(modelFile)
+learn_inf = load_learner(model)
 
 def SimpleFastaParser(fasta_sequence):
     seq = fasta_sequence.split('\n')
