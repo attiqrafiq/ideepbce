@@ -5,7 +5,18 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from sklearn.model_selection import cross_val_predict
-import protFeature
+# import protFeature
+import pickle
+# import pandas as pd
+# import numpy as np
+# from propy import PyPro
+# # from tensorflow.keras.models import model_from_json
+
+# # ################## Preparation for Web App
+# with open("epi__DPC_Scale.pkl", 'rb') as file:
+#     std_scale = pickle.load(file)
+std_scale=pickle.load(open('epi__DPC_Scale.pkl','rb'))
+_Clf=pickle.load(open('epi_all_Model.pkl','rb'))
 
 epi_length = 20
 st.title("iLBCE-Deep")
