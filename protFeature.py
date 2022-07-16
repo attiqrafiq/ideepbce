@@ -8,9 +8,9 @@ from propy import PyPro
 with open("./epi__DPC_Scale.pkl", 'rb') as file:
     std_scale = pickle.load(file)
 path="./epi__DPC_Model.pkl" # "https://raminay.com/model/epi__DPC_Model.pkl"
-_Clf=pickle.load(open(path, 'rb'))
-#with open(path, 'rb') as file: # ./epi__DPC_Model.pkl
-#    _Clf = pickle.load(file)
+# _Clf=pickle.load(open(path, 'rb'))
+with open(path, 'rb') as file: # ./epi__DPC_Model.pkl
+    _Clf = pickle.load('./epi__DPC_Model.pkl')
 
 #  # load json and create model
 # json_file = open('model_DPC_LSTM.json', 'r')
