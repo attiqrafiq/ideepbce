@@ -19,22 +19,22 @@ from fastai.text.all import *
 # with open("epi__DPC_Scale.pkl", 'rb') as file:
 #     std_scale = pickle.load(file)
 std_scale=pickle.load(open('epi__DPC_Scale.pkl','rb'))
-_Clf=pickle.load(open('https://raminay.com/model/epi__DPC_Model.pkl','rb')) # 'epi__DPC_Model.pkl'
+# _Clf=pickle.load(open('https://raminay.com/model/epi__DPC_Model.pkl','rb')) # 'epi__DPC_Model.pkl'
 
 epi_length = 20
 st.title("iLBCE-Deep")
 
 # download model from Dropbox, cache it and load the model into the app
-# @st.cache(allow_output_mutation=True)
-# def load_model(url):
-#     modelLink = url
-#     model = requests.get(modelLink).content
-#     return model
+@st.cache(allow_output_mutation=True)
+def load_model(url):
+    modelLink = url
+    model = requests.get(modelLink).content
+    return model
 
 
-# modelFile = load_model("https://raminay.com/model/epi__DPC_Model.pkl")
-# model = BytesIO(modelFile)
-# learn_inf = load_learner(model)
+modelFile = load_model("https://raminay.com/model/epi__DPC_Model.pkl")
+model = BytesIO(modelFile)
+learn_inf = load_learner(model)
 
 def SimpleFastaParser(fasta_sequence):
     seq = fasta_sequence.split('\n')
