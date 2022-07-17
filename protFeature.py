@@ -9,7 +9,7 @@ import joblib
 # with open("epi__DPC_Scale.pkl", 'rb') as file:
 #     std_scale = pickle.load(file)
 std_scale=pickle.load(open('epi__DPC_Scale.pkl','rb'))
-_Clf=joblib.load('epi_all_Model.pkl') # .load(open('epi_all_Model.pkl','rb'))
+_Clf=joblib.load('epi__DPC_Model.pkl') # .load(open('epi_all_Model.pkl','rb'))
 
 # with open("epi__DPC_Model.pkl", 'rb') as filemodel:
 #     _Clf = pickle.load(filemodel)
