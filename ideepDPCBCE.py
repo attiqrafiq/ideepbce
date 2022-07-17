@@ -5,7 +5,6 @@ import pandas as pd
 from sklearn.tree import DecisionTreeClassifier
 from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
 from sklearn.model_selection import cross_val_predict
-# import protFeature
 import pickle
 import requests
 from io import BytesIO
@@ -98,8 +97,8 @@ if btnExample:
 if st.sidebar.button('Submit'):
     st.session_state.load_state = True
     allowed_chars = set('ACDEFGHIKLMNPQRSTVWXY')
-    import extractDPCFeatures
-    
+#     import extractDPCFeatures
+    import protFeature
     if seq == "":
         st.error("Please input the sequence first")
         exit(code=None)
