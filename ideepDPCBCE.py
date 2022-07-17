@@ -10,7 +10,7 @@ import pickle
 import requests
 from io import BytesIO
 from fastai.text.all import *
-import joblib
+# import joblib
 # import pandas as pd
 # import numpy as np
 # from propy import PyPro
@@ -19,8 +19,8 @@ import joblib
 # # ################## Preparation for Web App
 # with open("epi__DPC_Scale.pkl", 'rb') as file:
 #     std_scale = pickle.load(file)
-std_scale=pickle.load(open('epi__DPC_Scale.pkl','rb'))
-_Clf=joblib.load(open('epi__DPC_Model.pkl')) # 'epi__DPC_Model.pkl'
+# std_scale=pickle.load(open('epi__DPC_Scale.pkl','rb'))
+# _Clf=joblib.load(open('epi__DPC_Model.pkl')) # 'epi__DPC_Model.pkl'
 
 epi_length = 20
 st.title("iLBCE-Deep")
@@ -98,7 +98,7 @@ if btnExample:
 if st.sidebar.button('Submit'):
     st.session_state.load_state = True
     allowed_chars = set('ACDEFGHIKLMNPQRSTVWXY')
-    # import extractDPCFeatures
+    import extractDPCFeatures
     
     if seq == "":
         st.error("Please input the sequence first")
