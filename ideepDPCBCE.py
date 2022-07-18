@@ -1,4 +1,5 @@
 import streamlit as st
+import base64
 # from streamlit import report_session
 import numpy as np
 import pandas as pd
@@ -92,7 +93,16 @@ if btnExample:
 #with col2:
 #    with open('deepdpc.zip', 'rb') as f:
 #       st.download_button('Download Zip', f, file_name='archive.zip')  # Defaults to 'application/octet-stream'
-
+with col2:
+    datafile = "Sup_Data.zip"
+    if st.button("Download Dataset"):
+        with open(datafile, "rb") as f:
+            bytes = f.read()
+            b64 = base64.b64encode(bytes).decode()
+            href = f'<a href="data:file/zip;base64,{b64}" download=\'{datafile}\'>\
+            Click to download\
+            </a>'
+        st.markdown(href, unsafe_allow_html=True)
 
 if st.sidebar.button('Submit'):
     st.session_state.load_state = True
