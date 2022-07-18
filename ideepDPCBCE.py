@@ -93,9 +93,11 @@ if btnExample:
 #with col2:
 #    with open('deepdpc.zip', 'rb') as f:
 #       st.download_button('Download Zip', f, file_name='archive.zip')  # Defaults to 'application/octet-stream'
+
 with col2:
     datafile = "Sup_Data.zip"
     if st.button("Download Dataset"):
+        st.session_state.load_state = True
         with open(datafile, "rb") as f:
             bytes = f.read()
             b64 = base64.b64encode(bytes).decode()
