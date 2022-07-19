@@ -94,17 +94,27 @@ if btnExample:
 #    with open('deepdpc.zip', 'rb') as f:
 #       st.download_button('Download Zip', f, file_name='archive.zip')  # Defaults to 'application/octet-stream'
 
+# with col2:
+#     datafile = "Sup_Data.zip"
+#     if st.button("Download Dataset"):
+#         st.session_state.load_state = True
+#         with open(datafile, "rb") as f:
+#             bytes = f.read()
+#             b64 = base64.b64encode(bytes).decode()
+#             href = f'<a href="data:file/zip;base64,{b64}" download=\'{datafile}\'>\
+#             Click to download\
+#             </a>'
+#         st.markdown(href, unsafe_allow_html=True)
 with col2:
     datafile = "Sup_Data.zip"
-    if st.button("Download Dataset"):
-        st.session_state.load_state = True
-        with open(datafile, "rb") as f:
-            bytes = f.read()
-            b64 = base64.b64encode(bytes).decode()
-            href = f'<a href="data:file/zip;base64,{b64}" download=\'{datafile}\'>\
-            Click to download\
-            </a>'
-        st.markdown(href, unsafe_allow_html=True)
+    with open(datafile, "rb") as fp:
+        btn = st.download_button(
+            label="Download ZIP",
+            data=fp,
+            file_name="myfile.zip",
+            mime="application/zip"
+        )
+
 
 if st.sidebar.button('Submit'):
     st.session_state.load_state = True
