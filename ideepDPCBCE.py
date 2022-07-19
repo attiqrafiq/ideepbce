@@ -109,9 +109,9 @@ with col2:
     datafile = "Sup_Data.zip"
     with open(datafile, "rb") as fp:
         btn = st.download_button(
-            label="Download ZIP",
+            label="Download Dataset",
             data=fp,
-            file_name="myfile.zip",
+            file_name="iedb_dataset.zip",
             mime="application/zip"
         )
 
