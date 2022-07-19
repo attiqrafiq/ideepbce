@@ -20,6 +20,7 @@ def SimpleParser(sequence):
     return re
 
 
+@st.cache
 def main():
     st.title("iLBCE-Deep")
     html_head = """
