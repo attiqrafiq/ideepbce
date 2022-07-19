@@ -2,12 +2,10 @@ import pickle
 import pandas as pd
 import numpy as np
 from propy import PyPro
-# import joblib
 import requests
 from io import BytesIO
-# from tensorflow.keras.models import model_from_json
 
-# r = requests.get(url, allow_redirects=True)
+
 
 def load_model(url):
     modelLink = url
@@ -19,15 +17,8 @@ url = "https://raminay.com/model/epi__DPC_Model.pkl"
 modelFile = load_model("https://raminay.com/model/epi__DPC_Model.pkl")
 model = BytesIO(modelFile)
 _Clf = pickle.load(model)
+std_scale = pickle.load(open('epi__DPC_Scale.pkl','rb'))
 
-# # ################## Preparation for Web App
-# with open("epi__DPC_Scale.pkl", 'rb') as file:
-#     std_scale = pickle.load(file)
-std_scale=pickle.load(open('epi__DPC_Scale.pkl','rb'))
-# _Clf=joblib.load('epi__DPC_Model.pkl') # .load(open('epi_all_Model.pkl','rb'))
-# _Clf=joblib.load(open('epi__DPC_Model.pkl', 'rb'))
-# with open("epi__DPC_Model.pkl", 'rb') as filemodel:
-#     _Clf = pickle.load(filemodel)
 
 def processAllStrings(fname):
     seqs = []
@@ -175,6 +166,6 @@ def performPrediction(FV):
     y1 = output[:, 1]
     # yLabel = np.round(y1)
     if y1 >= 0.75:#yLabel == 0:
-        return 'pBCE '+str(y1)
+        return 'pBCE ' # +str(y1)
     else:
-        return 'nBCE '+str(y1)
+        return 'nBCE ' # +str(y1)

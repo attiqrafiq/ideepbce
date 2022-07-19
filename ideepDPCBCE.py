@@ -1,41 +1,9 @@
 import streamlit as st
-import base64
-# from streamlit import report_session
-import numpy as np
-import pandas as pd
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.metrics import accuracy_score, confusion_matrix, classification_report
-from sklearn.model_selection import cross_val_predict
-import pickle
-import requests
-from io import BytesIO
-from fastai.text.all import *
-# import joblib
-# import pandas as pd
-# import numpy as np
-# from propy import PyPro
-# # from tensorflow.keras.models import model_from_json
 
-# # ################## Preparation for Web App
-# with open("epi__DPC_Scale.pkl", 'rb') as file:
-#     std_scale = pickle.load(file)
-# std_scale=pickle.load(open('epi__DPC_Scale.pkl','rb'))
-# _Clf=joblib.load(open('epi__DPC_Model.pkl')) # 'epi__DPC_Model.pkl'
 
 epi_length = 20
 st.title("iLBCE-Deep")
 
-# download model from Dropbox, cache it and load the model into the app
-# @st.cache(allow_output_mutation=True)
-# def load_model(url):
-#     modelLink = url
-#     model = requests.get(modelLink).content
-#     return model
-
-
-# modelFile = load_model("https://raminay.com/model/epi__DPC_Model.pkl")
-# model = BytesIO(modelFile)
-# learn_inf = load_learner(model)
 
 def SimpleFastaParser(fasta_sequence):
     seq = fasta_sequence.split('\n')
@@ -90,21 +58,8 @@ if btnExample:
         'MASQKRPSQRHGSKYLATASTMDHARHGFLPRHRDTGILDSIGRFFGGDRGAPKRGSGKDSHHPARTAHYGSLPQKSHGRTQDENPVVHFFKNIVTPRTPPPSQGKGRGLSLSRFSWGAEGQRPGFGYGGRASDYKSAHKGFKGVDAQGTLSKIFKLGGRDSRSGSPMARR', language="markdown")
     st.code(
         'MASMQHFSLAALLLAASICLGDADRTECQLPLDKGTPCTQEGGVKPSVAWWHDDKSGICLSFKYTGCGGNANRFTTIKNCEQHCKMPDRGACALGKKPAEDSNGEQLVCAGMREDKCPNGYQCKMMAFMGLCCPTKEEELFAREYEGVCKSGKPVKMDRGSGWMMTILGKSCDDQFCPEDAKCERGKLFANCCK', language="markdown")
-#with col2:
-#    with open('deepdpc.zip', 'rb') as f:
-#       st.download_button('Download Zip', f, file_name='archive.zip')  # Defaults to 'application/octet-stream'
 
-# with col2:
-#     datafile = "Sup_Data.zip"
-#     if st.button("Download Dataset"):
-#         st.session_state.load_state = True
-#         with open(datafile, "rb") as f:
-#             bytes = f.read()
-#             b64 = base64.b64encode(bytes).decode()
-#             href = f'<a href="data:file/zip;base64,{b64}" download=\'{datafile}\'>\
-#             Click to download\
-#             </a>'
-#         st.markdown(href, unsafe_allow_html=True)
+
 with col2:
     datafile = "Sup_Data.zip"
     with open(datafile, "rb") as fp:
