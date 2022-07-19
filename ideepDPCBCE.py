@@ -2,6 +2,16 @@ import streamlit as st
 
 
 epi_length = 20
+st.title("iLBCE-Deep")
+html_head = """
+        ## iLBCE-Deep: A Deep Learning Model based Server to Identify BCell Epitopes
+        BCells epitopes are immunogenic, having the capability to bind with the antigens to create antibodies to stimulate 
+        the bodies auto-immune system to fight against the pathogens.
+        iLBCE-Deep server is based on the Deep Convolutional Neural Network  (CNN) Model developed to predict linear bcell epitopes 
+        from a protein sequence. This proposed prediction model identify the epitopes with increased accuracy.
+        """
+st.markdown(html_head, unsafe_allow_html=True)
+
 
 def SimpleFastaParser(fasta_sequence):
     seq = fasta_sequence.split('\n')
@@ -22,15 +32,7 @@ def SimpleParser(sequence):
 
 @st.cache
 def main():
-    st.title("iLBCE-Deep")
-    html_head = """
-        ## iLBCE-Deep: A Deep Learning Model based Server to Identify BCell Epitopes
-        BCells epitopes are immunogenic, having the capability to bind with the antigens to create antibodies to stimulate 
-        the bodies auto-immune system to fight against the pathogens.
-        iLBCE-Deep server is based on the Deep Convolutional Neural Network  (CNN) Model developed to predict linear bcell epitopes 
-        from a protein sequence. This proposed prediction model identify the epitopes with increased accuracy.
-        """
-    st.markdown(html_head, unsafe_allow_html=True)
+
     # st.header("*Protein Sequence*")
     st.image("archi_img.png", caption="Proposed methodology to develop iLBCE-Deep Classification Model", use_column_width=True)
     st.sidebar.header("*Protein Sequence*")
