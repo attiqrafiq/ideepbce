@@ -111,7 +111,7 @@ with col2:
         btn = st.download_button(
             label="Download Dataset",
             data=fp,
-            file_name="iedb_dataset.zip",
+            file_name="mydataset.zip",
             mime="application/zip"
         )
 
