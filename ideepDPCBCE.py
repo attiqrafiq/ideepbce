@@ -30,7 +30,6 @@ def SimpleParser(sequence):
     return re
 
 
-@st.cache
 def main():
 
     # st.header("*Protein Sequence*")
