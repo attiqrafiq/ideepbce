@@ -35,10 +35,10 @@ def main():
     # st.header("*Protein Sequence*")
     st.image("archi_img.png", caption="Proposed methodology to develop iLBCE-Deep Classification Model", use_column_width=True)
     st.sidebar.header("*Protein Sequence*")
+    # initialize session state
+    if "load_state" not in st.session_state:
+        st.session_state.load_state = False
     seq = st.sidebar.text_area("Input a sequence in fasta format or in simple text", height=200)
-
-    # epi_length = st.sidebar.number_input("Enter the length of an epitope to predict",
-    #                                      min_value=6, max_value=49, value=19, step=1)
 
     epi_length = st.sidebar.slider("Enter the length of an epitope to predict",
                                          min_value=6, max_value=49, value=19, step=1)
@@ -48,9 +48,6 @@ def main():
     col1, col2 = st.columns([1, 1])
     with col1:
         btnExample = st.button('Sample Sequence')
-    # initialize session state
-    if "load_state" not in st.session_state:
-        st.session_state.load_state = False
 
     if btnExample:
         st.session_state.load_state = True
