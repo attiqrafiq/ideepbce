@@ -5,18 +5,34 @@ from propy import PyPro
 import requests
 from io import BytesIO
 
-
+from urllib.request import urlopen
 
 def load_model(url):
     modelLink = url
     model = requests.get(modelLink).content
     return model
 
+#### To load from some url ####
 
-url = "https://raminay.com/model/epi__DPC_Model.pkl"
-modelFile = load_model("https://raminay.com/model/epi__DPC_Model.pkl")
-model = BytesIO(modelFile)
-_Clf = pickle.load(model)
+# Step 1: Download the model file
+url = "https://attique.cheaphost.pk/servermodel/epi__DPC_Model.pkl"
+response = requests.get(url)
+response.raise_for_status()  # Ensure the request was successful
+
+# Step 2: Load the model using pickle
+model_file = BytesIO(response.content)  # Convert the response content to a file-like object
+_Clf = pickle.load(model_file)  # Load the model with pickle
+
+# url = "https://attique.cheaphost.pk/servermodel/epi__DPC_Model.pkl"
+# modelFile = load_model("https://attique.cheaphost.pk/servermodel/epi__DPC_Model.pkl")
+# model = BytesIO(modelFile)
+# _Clf = pickle.load(model)
+
+# _Clf = pickle.load(urlopen("https://attique.cheaphost.pk/servermodel/epi__DPC_Model.pkl", 'rb')) 
+
+#### End load from some url ####
+
+# _Clf = pickle.load(open('https://attique.cheaphost.pk/servermodel/epi__DPC_Model.pkl','rb'))
 std_scale = pickle.load(open('epi__DPC_Scale.pkl','rb'))
 
 
