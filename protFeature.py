@@ -32,7 +32,7 @@ _Clf = pickle.load(model_file)  # Load the model with pickle
 
 #### End load from some url ####
 
-# _Clf = pickle.load(open('https://attique.cheaphost.pk/servermodel/epi__DPC_Model.pkl','rb'))
+
 std_scale = pickle.load(open('epi__DPC_Scale.pkl','rb'))
 
 
